@@ -1,0 +1,30 @@
+<section class="section showcase" id="demos">
+  <div class="container text-center">
+    <div class="showcase__intro">
+      No matter the task, the new POSH is up to it — and even more. See for yourself —
+      all the pre-made demos, inspired by world's finest websites, are
+      <span class="showcase__emphasis">made with POSH.</span> And this is only a tip of
+      the iceberg of what you will get.
+    </div>
+    <hr class="showcase__rule" />
+  </div>
+
+  <div class="showcase__container">
+    @if (showcases.length) {
+      <div class="showcase__grid">
+        @for (column of columns(); track $index) {
+          <div class="showcase__column">
+            @for (showcase of column; track showcase.id) {
+              <app-showcase-card
+                [showcase]="showcase"
+                (selected)="selected.emit($event)"
+              />
+            }
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="showcase__empty">No demos to show yet.</p>
+    }
+  </div>
+</section>

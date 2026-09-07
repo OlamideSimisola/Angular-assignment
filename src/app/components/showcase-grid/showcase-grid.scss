@@ -1,0 +1,55 @@
+.showcase {
+  background-color: var(--posh-dark);
+  padding-bottom: 3rem;
+}
+
+.showcase__intro {
+  margin: 0 auto;
+  max-width: 60rem;
+  font-size: 1.777rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: #949494;
+}
+
+.showcase__emphasis {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* The short centred rule the original puts under the intro. */
+.showcase__rule {
+  width: 4rem;
+  margin: 3rem auto 2.5rem;
+  border: 0;
+  border-top: 1px solid #949494;
+}
+
+.showcase__container {
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+/* Columns are packed by the component; each one just stacks its own tiles. */
+.showcase__grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.showcase__column {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.showcase__empty {
+  text-align: center;
+  color: #949494;
+}
+
+@media (max-width: 767px) {
+  .showcase__intro { font-size: 1.25rem; }
+}

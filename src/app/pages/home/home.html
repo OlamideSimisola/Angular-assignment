@@ -1,0 +1,16 @@
+<app-hero
+  [headlinePrefix]="heroPrefix"
+  [headlineSuffix]="heroSuffix"
+  [rotatingWords]="heroWords"
+  [subtext]="heroSubtext"
+  [mockups]="heroMockups"
+  (primaryCtaClicked)="onExploreDemos()"
+  (secondaryCtaClicked)="onPurchase()"
+/>
+
+<div #demosAnchor></div>
+<app-showcase-grid (selected)="onDemoSelected($event)" />
+
+<app-features />
+
+<app-cta-banner (ctaClicked)="onPurchase()" />

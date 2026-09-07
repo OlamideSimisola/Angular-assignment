@@ -1,0 +1,30 @@
+<section class="section about-hero text-center">
+  <div class="container">
+    <span class="eyebrow">About</span>
+    <h1 class="about-hero__title">A template built by people who ship</h1>
+    <p class="lead about-hero__lead">
+      Posh is a design system disguised as a template — {{ demoCount }} demos across
+      {{ categories.length }} categories, all sharing one modular layout engine.
+    </p>
+  </div>
+</section>
+
+<section class="section about-story">
+  <div class="container">
+    <ol class="timeline">
+      @for (milestone of milestones; track milestone.year) {
+        <li class="timeline__item">
+          <span class="timeline__year">{{ milestone.year }}</span>
+          <div>
+            <h3 class="timeline__title">{{ milestone.title }}</h3>
+            <p class="timeline__text">{{ milestone.text }}</p>
+          </div>
+        </li>
+      }
+    </ol>
+
+    <div class="text-center">
+      <a class="btn btn-primary" routerLink="/" fragment="demos">Browse the demos</a>
+    </div>
+  </div>
+</section>

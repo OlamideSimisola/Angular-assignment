@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="container footer__row">
+    <div class="footer__copyright">&copy; {{ currentYear }} POSH &trade; Inc.</div>
+
+    <div class="footer__socials">
+      @for (social of socials; track social.label) {
+        <a
+          class="footer__social"
+          href="#"
+          [attr.aria-label]="social.label"
+          (click)="$event.preventDefault()"
+        >
+          <i class="bi" [class]="'bi ' + social.icon" aria-hidden="true"></i>
+        </a>
+      }
+    </div>
+
+    <div class="footer__credit">
+      Made with <span class="footer__heart" aria-label="love">&#10084;&#65039;</span> by
+      <span class="footer__author">Lamlam</span>
+    </div>
+  </div>
+</footer>

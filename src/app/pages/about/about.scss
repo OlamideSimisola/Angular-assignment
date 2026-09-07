@@ -1,0 +1,54 @@
+.about-hero {
+  padding-bottom: 3rem;
+}
+
+.about-hero__title {
+  margin: 0 auto 1rem;
+  max-width: 40rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+}
+
+.about-hero__lead {
+  margin: 0 auto;
+  max-width: 36rem;
+}
+
+.about-story {
+  padding-top: 0;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0 auto 3rem;
+  padding: 0;
+  max-width: 40rem;
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--posh-border);
+}
+
+.timeline__year {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--posh-primary);
+}
+
+.timeline__title {
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+}
+
+.timeline__text {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 575px) {
+  .timeline__item { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+}

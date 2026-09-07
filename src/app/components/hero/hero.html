@@ -1,0 +1,35 @@
+<section class="hero">
+  <div class="container text-center">
+    <span class="eyebrow">{{ eyebrow() }}</span>
+
+    <h1 class="hero__title">
+      {{ headlinePrefix() }}
+      <span class="hero__typed">{{ typedWord() }}<span class="hero__caret"></span></span>
+      {{ headlineSuffix() }}
+    </h1>
+
+    <p class="lead hero__subtext">{{ subtext() }}</p>
+
+    <div class="hero__actions">
+      <button class="btn btn-primary" type="button" (click)="primaryCtaClicked.emit()">
+        {{ primaryCtaLabel() }}
+      </button>
+      <p class="hero__secondary">
+        or
+        <button class="btn btn-link" type="button" (click)="secondaryCtaClicked.emit()">
+          {{ secondaryCtaLabel() }} &#10230;
+        </button>
+      </p>
+    </div>
+
+    @if (mockups().length) {
+      <div class="hero__mockups">
+        @for (mockup of mockups(); track mockup; let i = $index) {
+          <div class="hero__mockup" [class.hero__mockup--center]="i === 1">
+            <img [src]="mockup" alt="Posh demo screenshot" loading="lazy" />
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<section class="section features" id="features">
+  <div class="container">
+    <ul class="features__grid">
+      @for (feature of features; track feature.id) {
+        <li class="features__item">
+          <hr class="features__rule" />
+          <div class="features__text">{{ feature.text }}</div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

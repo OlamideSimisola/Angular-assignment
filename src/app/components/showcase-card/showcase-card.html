@@ -1,0 +1,10 @@
+<a class="card" href="#" (click)="onSelect($event)">
+  <h6 class="card__title">
+    {{ showcase().title }}
+    @if (showcase().inspiration) {
+      <span class="card__inspiration">({{ showcase().inspiration }})</span>
+    }
+  </h6>
+
+  <img [src]="showcase().image" [alt]="showcase().title + ' demo screenshot'" loading="lazy" />
+</a>

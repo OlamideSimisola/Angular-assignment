@@ -1,0 +1,211 @@
+/* ---------------------------------------------------------------
+   Global theme — a hand-rolled take on the Posh template's look:
+   Montserrat, an electric #007aff primary and a near-black #0c151a.
+   --------------------------------------------------------------- */
+
+:root {
+  --posh-primary: #007aff;
+  --posh-primary-dark: #0062cc;
+  --posh-dark: #0c151a;
+  --posh-dark-soft: #16232b;
+  --posh-body: #4d5968;
+  --posh-heading: #0b1727;
+  --posh-muted: #9fa9b4;
+  --posh-border: #e3e6ea;
+  --posh-radius: 4px;
+  --posh-shadow: 0 0.5rem 1.5rem rgba(11, 23, 39, 0.08);
+  --posh-shadow-lg: 0 1rem 3rem rgba(11, 23, 39, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--posh-body);
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem;
+  color: var(--posh-heading);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--posh-primary);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+a:hover { color: var(--posh-primary-dark); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* --- layout helpers ------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.section--dark {
+  background-color: var(--posh-dark);
+  color: var(--posh-muted);
+
+  h1, h2, h3, h4, h5, h6 { color: #fff; }
+}
+
+.text-center { text-align: center; }
+
+.eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--posh-muted);
+  margin-bottom: 1.5rem;
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: var(--posh-body);
+}
+
+/* --- buttons --------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--posh-radius);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background-color: var(--posh-primary);
+  border-color: var(--posh-primary);
+  color: #fff;
+}
+.btn-primary:hover:not([disabled]) {
+  background-color: var(--posh-primary-dark);
+  border-color: var(--posh-primary-dark);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  border-color: var(--posh-primary);
+  color: var(--posh-primary);
+}
+.btn-outline-primary:hover:not([disabled]) {
+  background-color: var(--posh-primary);
+  border-color: var(--posh-primary);
+  color: #fff;
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+.btn-outline-light:hover:not([disabled]) {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--posh-dark);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--posh-primary);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9375rem;
+}
+
+/* --- forms ----------------------------------------------------- */
+
+.form-label {
+  display: block;
+  margin-bottom: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--posh-heading);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--posh-heading);
+  background-color: #fff;
+  border: 1px solid var(--posh-border);
+  border-radius: var(--posh-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--posh-primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+}
+
+.form-control.is-invalid {
+  border-color: #e63757;
+}
+.form-control.is-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(230, 55, 87, 0.15);
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: 0.375rem;
+  font-size: 0.8125rem;
+  color: #e63757;
+}
+
+@media (max-width: 767px) {
+  .section { padding: 4rem 0; }
+}

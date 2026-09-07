@@ -1,0 +1,151 @@
+<header class="navbar" [class.navbar--menu-open]="menuOpen()">
+  <div class="container navbar__inner">
+    <a class="navbar__brand" routerLink="/" (click)="closeAll()">
+      <img [src]="logo" alt="Posh" width="80" />
+    </a>
+
+    <button
+      class="navbar__toggle"
+      type="button"
+      [class.navbar__toggle--open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="navbar__collapse" [class.navbar__collapse--open]="menuOpen()">
+      <ul class="navbar__nav">
+        @for (item of items; track item.label) {
+          <li
+            class="navbar__item"
+            [class.is-open]="openDropdown() === item.label"
+            (mouseenter)="onItemEnter(item.label)"
+            (mouseleave)="onItemLeave()"
+          >
+            <button
+              class="navbar__link"
+              type="button"
+              [attr.aria-expanded]="openDropdown() === item.label"
+              (click)="toggleDropdown(item.label)"
+            >
+              {{ item.label }}
+              <span class="navbar__caret" aria-hidden="true"></span>
+            </button>
+
+            @switch (item.kind) {
+              @case ('simple') {
+                <ul class="dropdown">
+                  @for (link of item.links; track link.label) {
+                    <li>
+                      <a
+                        class="dropdown__link"
+                        [routerLink]="link.path"
+                        [fragment]="link.fragment"
+                        (click)="closeAll()"
+                      >
+                        {{ link.label }}
+                      </a>
+                    </li>
+                  }
+                </ul>
+              }
+
+              @case ('nested') {
+                <ul class="dropdown">
+                  @for (group of item.groups; track $index) {
+                    @if (group.label) {
+                      <li
+                        class="dropdown__group"
+                        [class.is-open]="openSubmenu() === group.label"
+                        (mouseenter)="onGroupEnter(group.label!)"
+                        (mouseleave)="onGroupLeave()"
+                      >
+                        <button
+                          class="dropdown__link dropdown__link--toggle"
+                          type="button"
+                          [attr.aria-expanded]="openSubmenu() === group.label"
+                          (click)="toggleSubmenu(group.label!, $event)"
+                        >
+                          {{ group.label }}
+                          <span class="dropdown__arrow" aria-hidden="true"></span>
+                        </button>
+
+                        <ul class="dropdown dropdown--sub">
+                          @for (link of group.links; track link.label) {
+                            <li>
+                              <a
+                                class="dropdown__link"
+                                [routerLink]="link.path"
+                                [fragment]="link.fragment"
+                                (click)="closeAll()"
+                              >
+                                {{ link.label }}
+                              </a>
+                            </li>
+                          }
+                        </ul>
+                      </li>
+                    } @else {
+                      @for (link of group.links; track link.label) {
+                        <li>
+                          <a
+                            class="dropdown__link"
+                            [routerLink]="link.path"
+                            [fragment]="link.fragment"
+                            (click)="closeAll()"
+                          >
+                            {{ link.label }}
+                          </a>
+                        </li>
+                      }
+                    }
+                  }
+                </ul>
+              }
+
+              @case ('mega') {
+                <div class="dropdown dropdown--mega">
+                  @if (item.promo; as promo) {
+                    <div
+                      class="mega__promo"
+                      [style.background-image]="'url(' + promo.image + ')'"
+                    >
+                      <div class="mega__promo-body">
+                        <p class="mega__title">{{ promo.title }}</p>
+                        <a
+                          class="mega__cta"
+                          [routerLink]="promo.ctaPath"
+                          [fragment]="promo.ctaFragment"
+                          (click)="closeAll()"
+                        >
+                          {{ promo.ctaLabel }}
+                        </a>
+                      </div>
+                    </div>
+                  }
+
+                  <ul class="mega__links">
+                    @for (link of item.links; track link.label) {
+                      <li>
+                        <a
+                          class="dropdown__link"
+                          [routerLink]="link.path"
+                          [fragment]="link.fragment"
+                          (click)="closeAll()"
+                        >
+                          {{ link.label }}
+                        </a>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+            }
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

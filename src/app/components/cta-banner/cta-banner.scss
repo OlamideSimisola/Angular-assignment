@@ -1,0 +1,19 @@
+.cta {
+  padding: 5rem 0;
+}
+
+/* Short centred rule above the closing line, as in the original. */
+.cta__rule {
+  width: 4rem;
+  margin: 0 auto 3rem;
+  border: 0;
+  border-top: 1px solid #949494;
+}
+
+.cta__heading {
+  margin: 0 auto 1rem;
+  max-width: 40rem;
+  font-size: 1.333rem;
+  font-weight: 300;
+  color: var(--posh-heading);
+}

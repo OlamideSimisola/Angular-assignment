@@ -1,0 +1,9 @@
+<section class="section cta">
+  <div class="container text-center">
+    <hr class="cta__rule" />
+    <p class="cta__heading">{{ heading() }}</p>
+    <button class="btn btn-outline-primary" type="button" (click)="ctaClicked.emit()">
+      {{ buttonLabel() }}
+    </button>
+  </div>
+</section>
